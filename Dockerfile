@@ -8,7 +8,7 @@ RUN dnf upgrade -yq && \
 # Install required packages
 RUN dnf install -yq git \
                     python \
-                    python-lxml && \
+                    python2-lxml && \
     dnf clean all
 
 # Set uid/gid (override with the '-e' flag), 1000/1000 used since it's the
