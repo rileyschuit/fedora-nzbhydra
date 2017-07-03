@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Check our uid/gid, change if env variables require it
 if [ "$( id -u nzbhydra )" -ne "${LUID}" ]; then
@@ -12,4 +12,5 @@ fi
 # Set permissions
 chown -R nzbhydra:nzbhydra /config/ /opt/nzbhydra
 
-exec runuser -l nzbhydra -c 'python /opt/nzbhydra/app/nzbhydra.py --nobrowser --config /config/nzbhydra.cfg --database /config/nzbhydra.db'
+#exec runuser -l nzbhydra -c 'python /opt/nzbhydra/app/nzbhydra.py --nobrowser --config /config/nzbhydra.cfg --database /config/nzbhydra.db'
+python /opt/nzbhydra/app/nzbhydra.py --nobrowser --config /config/nzbhydra.cfg --database /config/nzbhydra.db
