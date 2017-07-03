@@ -23,5 +23,5 @@ Create with a custom uid/gid for the nzbhydra daemon:
 docker create -v /path/to/config/dir:/config \
     -v /etc/localtime:/etc/localtime:ro \
     -e LUID=1234 -e LGID=1234 \
-    -p 5075:5075 --name=nzbhydra mattsch/fedora-nzbhydra
+    -p 5075:5075 --name=nzbhydra rileyschuit/rpi-docker-nzbhydra 
 ```
