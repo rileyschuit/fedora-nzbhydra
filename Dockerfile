@@ -1,15 +1,10 @@
-FROM mattsch/fedora-rpmfusion:latest
-MAINTAINER Matthew Schick <matthew.schick@gmail.com>
+FROM armv7/armhf-ubuntu 
 
-# Run updates
-RUN dnf upgrade -yq && \
-    dnf clean all
+RUN apt-get update && apt-get upgrade -y
 
-# Install required packages
-RUN dnf install -yq git \
+RUN apt-get -y install  git \
                     python \
-                    python2-lxml && \
-    dnf clean all
+		    libxml2-dev libxslt1-dev python-dev
 
 # Set uid/gid (override with the '-e' flag), 1000/1000 used since it's the
 # default first uid/gid on a fresh Fedora install
@@ -32,5 +27,3 @@ COPY run-nzbhydra.sh /bin/run-nzbhydra.sh
  
 # Run our script
 CMD ["/bin/run-nzbhydra.sh"]
-
-
